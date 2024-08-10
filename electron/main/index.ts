@@ -78,7 +78,15 @@ async function createWindow() {
   // win.webContents.on('will-navigate', (event, url) => { }) #344
 }
 
-app.whenReady().then(createWindow)
+app.whenReady().then(() => {
+    console.log("process.env.APP_ROOT = ", process.env.APP_ROOT)
+    console.log("MAIN_DIST = ", MAIN_DIST)
+    console.log("RENDERER_DIST = ", RENDERER_DIST)
+    console.log("VITE_DEV_SERVER_URL = ", VITE_DEV_SERVER_URL)
+    console.log("process.env.VITE_PUBLIC = ", process.env.VITE_PUBLIC)
+    createWindow().then(r => console.log("createWindow successful!\n"))
+  }
+)
 
 app.on('window-all-closed', () => {
   win = null
@@ -98,7 +106,7 @@ app.on('activate', () => {
   if (allWindows.length) {
     allWindows[0].focus()
   } else {
-    createWindow()
+    createWindow().then(r => {})
   }
 })
 
@@ -113,8 +121,8 @@ ipcMain.handle('open-win', (_, arg) => {
   })
 
   if (VITE_DEV_SERVER_URL) {
-    childWindow.loadURL(`${VITE_DEV_SERVER_URL}#${arg}`)
+    childWindow.loadURL(`${VITE_DEV_SERVER_URL}#${arg}`).then(r => {})
   } else {
-    childWindow.loadFile(indexHtml, { hash: arg })
-  }
+    childWindow.loadFile(indexHtml, {hash: arg}).then(r =>{})
+   }
 })

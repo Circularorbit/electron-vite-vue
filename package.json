@@ -1,9 +1,9 @@
 {
-  "name": "electron-vue-vite",
-  "version": "28.1.0",
+  "name": "electron-vue-vite-element-plus",
+  "version": "1.0.0",
   "main": "dist-electron/main/index.js",
-  "description": "Really simple Electron + Vue + Vite boilerplate.",
-  "author": "草鞋没号 <308487730@qq.com>",
+  "description": "Really simple [Electron + Vue + Vite + ElementPlus] boilerplate",
+  "author": "Circularorbit <Circularorbit@outlook.com>",
   "license": "MIT",
   "private": true,
   "keywords": [
@@ -26,9 +26,12 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
-    "electron": "^29.1.1",
+    "electron": "^31.3.1",
     "electron-builder": "^24.13.3",
+    "element-plus": "^2.8.0",
     "typescript": "^5.4.2",
+    "unplugin-auto-import": "^0.18.2",
+    "unplugin-vue-components": "^0.27.3",
     "vite": "^5.1.5",
     "vite-plugin-electron": "^0.28.4",
     "vite-plugin-electron-renderer": "^0.14.5",
